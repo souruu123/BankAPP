@@ -1,0 +1,72 @@
+                          angular front end developer 
+
+
+                          basic ccommand 
+
+                1.to create project - ng new project - name /ng new project name -- rouuting 
+
+                2. to run  a project ng - serve /ng serve -- open
+
+                3.to create componenet - ng g c componenet- name 
+
+                
+                4.to create service - ng g s  service- name 
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          Basic concepts
+
+1.component-to create {html,css,ts file} root component- app componenet
+
+2.module - to add libraries to the project - root module - app module 
+
+3.data binding - data sharing between html and ts
+
+    3.1 one way binding
+        
+        3.1.1 componenet to view
+
+                    3.1.1.1 string interpolation : syntax -{{variable -name}}
+            
+                    3.1.1.2 property binding: [attribute]="variable-name"
+        
+        3.1.2 view to component
+                     
+                     3.1.2.1 event binding-(event)="function-call()"
+
+                     3.1.2.2 event binding using $event - (event)="function-call($event)"
+
+                     3.1.2.3 template reference variable - syntax: #variable-name 
+
+    3.2 two way binding
+
+        3.2 using ngModel - import FormModule in appModule, 
+            syntax:[(ngModel)]="variable-name"
+            
+4.to set up path for a componenet : defined in app routing module
+
+    syntax:{path:'',componenet:componenetClassName}
+
+5.dependancy injection - to share data between classes
+
+6.angular services -  for ridundant data
+
+
+7. ngSubmit- to submit entire form syntax : (ngSubmit)="function-call"
+
+8.Angular forms
+
+            8.1 template driven forms - first design html
+            
+            8.2 model driven forms - first create model in ts
+
+                8.2.1 reactive forms -add validation : import reactiveformsmodule
+
+                    - form group - form builder + dependancy inject  ,form array ,form control
