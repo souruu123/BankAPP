@@ -70,3 +70,13 @@
                 8.2.1 reactive forms -add validation : import reactiveformsmodule
 
                     - form group - form builder + dependancy inject  ,form array ,form control
+
+
+
+  9.angular directives-to manipulate DOM
+
+    9.1  component directives
+
+    9.2 structure directives - to change DOM stracture
+
+        9.2.1 ngIf - syntax: *ngIf="condition"                  
