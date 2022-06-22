@@ -56,13 +56,20 @@ login(){
   var acno=this.loginForm.value.acno
   var pswd=this.loginForm.value.pswd
 
-  const result = this.ds.login(acno,pswd)
+  if(this.loginForm.valid){
+    const result = this.ds.login(acno,pswd)
 
     if(result){
       alert("login successfull")
-      this.router.navigateByUrl('dashboard')
+      this.router.navigateByUrl('dasboard')
     }
  
+  }
+  else{
+    alert("invalid form")
+  }
+
+
 
 
 

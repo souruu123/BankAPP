@@ -4,13 +4,27 @@
     <span class="quote text-light">Giving you freedom...</span>
   </nav>
   
-  <h1 style="color: white;">WELCOME</h1>
   
-  <div class="container col-md-12 mt-0">
+  <h3 style="color: white;"> {{lDate|date:'short' }} </h3>
+
+  <a routerLink="/transaction">view transaction history</a>
+ <button class="btn btn-warning" (click)="logout()" style="float: right; margin-right:20px;">Log Out</button>
+
+    <h1 style="color: white;">WELCOME {{user}} </h1>
+  <button class="btn btn-danger" (click)="deleteAccount()" style="float: right; margin-right:20px;">DELETE</button>
+
+
+  <app-delete-confirm  (onCancel)="cancel()"  [item]="acno" ></app-delete-confirm>
+  
+  <!-- <app-animation></app-animation> -->
+  
+  <hr>
+  <hr>
+  <div [ngClass]="acno?'c1':'' " class="container col-md-12 mt-0" >
       <div class="d-flex justify-content-center h-100">
           <div class="card">
               <div class="card-header">
-                  <h3 class="text-center">Deposit Form</h3>
+                  <h3 appHighlight class="text-center">Deposit Form</h3>
                   
               </div>
               <div class="card-body">
@@ -58,13 +72,17 @@
       </div>
   </div>
 
-  <div class="container col-md-12 mt-0">
+
+
+  <div [ngClass]="acno?'c1':'' " class="container col-md-12 mt-4">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
             <div class="card-header">
-                <h3 class="text-center">withdrawal form</h3>
+                <h3 appHighlight class="text-center">withdrawal form</h3>
                 
             </div>
+
+            
             <div class="card-body">
                 <form [formGroup]="withdrawalForm" (ngSubmit)="withdrawal()">
  
@@ -87,7 +105,7 @@
                         <input type="password" class="form-control"name="pswd" formControlName="pswd" placeholder="password" id="login_password1" required>
                     </div>
 
-                    <div *ngIf="this.withdrawalForm.get('pswd')?.touched&&this.withdrawalForm.get('pswd')?.errors" style="color:red;">invalid account number</div>
+                    <div *ngIf="this.withdrawalForm.get('pswd')?.touched&&this.withdrawalForm.get('pswd')?.errors" style="color:red;">invalid password</div>
 
 
                     <div class="input-group form-group">
@@ -97,7 +115,7 @@
                       <input type="text" class="form-control" name="amount" formControlName="amount" placeholder="amount" id="login_user1" required>
                       
                   </div>
-                  <div *ngIf="this.withdrawalForm.get('amount')?.touched&&this.withdrawalForm.get('amount')?.errors" style="color:red;">invalid account number</div>
+                  <div *ngIf="this.withdrawalForm.get('amount')?.touched&&this.withdrawalForm.get('amount')?.errors" style="color:red;">invalid amount</div>
 
 
                     
