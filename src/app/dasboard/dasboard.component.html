@@ -14,7 +14,7 @@
   <button class="btn btn-danger" (click)="deleteAccount()" style="float: right; margin-right:20px;">DELETE</button>
 
 
-  <app-delete-confirm  (onCancel)="cancel()"  [item]="acno" ></app-delete-confirm>
+  <app-delete-confirm (onDelete)="onDelete($event)"  (onCancel)="cancel()"  [item]="acno" ></app-delete-confirm>
   
   <!-- <app-animation></app-animation> -->
   

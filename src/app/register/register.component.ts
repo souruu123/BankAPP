@@ -9,53 +9,59 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-   
-    // uname=""
-    // acno=""
-    // pswd=""
 
-    //form group
+  // uname=""
+  // acno=""
+  // pswd=""
 
-    registerForm = this.fb.group({
+  //form group
 
-     
-      acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
-      pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
-      uname:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
-     
+  registerForm = this.fb.group({
 
-    })
 
-  constructor(private ds:DataService,private router:Router,private fb:FormBuilder) { }
+    acno: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+    pswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
+    uname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+
+
+  })
+
+  constructor(private ds: DataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-  } 
+  }
 
- register(){
-  var uname=this.registerForm.value.uname
-  var acno=this.registerForm.value.acno
-  var pswd =this.registerForm.value.pswd
+  register() {
+    var uname = this.registerForm.value.uname
+    var acno = this.registerForm.value.acno
+    var pswd = this.registerForm.value.pswd
 
-  // console.log(this.registerForm.value);
-  // if(this.registerForm)
+    // console.log(this.registerForm.value);
+    // if(this.registerForm)
 
 
-  if(this.registerForm.valid){
-    const result =this.ds.register(uname,acno,pswd)
-
-    if (result){
-    alert("sucessfully registerd")
-    this.router.navigateByUrl("")
+    if (this.registerForm.valid) {
+      this.ds.register(uname, acno, pswd)
+      .subscribe((result:any)=>{
+        if (result) {
+          alert(result.message)
+          this.router.navigateByUrl("")
   
+        }
+        
+      },
+      result=>{
+        alert(result.error.message)
+      }
+      )
+
+
+      
+    }
+    else {
+      alert("invalid")
+    }
   }
-  else{
-    alert("already existing customer.........please login !!!!")
-  }
-   }
-   else{
-     alert("invalid")
-   }
-  }
- 
+
 
 }

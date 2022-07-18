@@ -3,7 +3,7 @@
 
                           basic ccommand 
 
-                1.to create project - ng new project - name /ng new project name -- rouuting 
+                1.to create project - ng new project - name /ng new project name -- routing 
 
                 2. to run  a project ng - serve /ng serve -- open
 
@@ -116,3 +116,11 @@
 14.event emitter - to generate userdefined events
 
         14.1 emit() - to occure the event 
+
+15.client - server integration
+
+        15.1 API- Http client (front end back end connect )
+
+16 .  Asynchronousfunction resolving - RxJS
+
+    16.1 Observeble - resolved state - .subscribe()
